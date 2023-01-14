@@ -4,5 +4,9 @@ from home import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',views.index,name="home")
+    path('',views.index,name="home"),
+    path('home',views.index,name="home"),
+    path('fakenews', views.fakenews, name='fakenews'),
+    path('summary', views.summary, name='summary'),
+    path('pressnpulse', views.pressnpulse, name='pressnpulse')
 ]
