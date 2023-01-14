@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock title %}
 {% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><strong>Sceptique</strong></a>
+  <a class="navbar-brand" href="/home"><strong>Sceptique |</strong></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -31,7 +31,87 @@
       </li>
     </ul>
   </div>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary mx-2" data-toggle="modal" data-target="#login">
+  Login
+</button>
+
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signup">
+  Sign Up
+</button>
+
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Login">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="Password" placeholder="Password">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Check1">
+            <label class="form-check-label" for="Check1">Keep me logged in</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="Sign Up" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Sign Up">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="Password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="Password">Repeat Password</label>
+            <input type="password" class="form-control" id="Password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -51,8 +131,7 @@
           alt="..."
         />
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h1>FIND➠SUMMARIZE➠ANALYZE</h1>
         </div>
       </div>
       <div class="carousel-item">
@@ -62,8 +141,7 @@
           alt="..."
         />
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1>FIND➠SUMMARIZE➠ANALYZE</h1>
         </div>
       </div>
       <div class="carousel-item">
@@ -73,10 +151,7 @@
           alt="..."
         />
         <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h1>FIND➠SUMMARIZE➠ANALYZE</h1>
         </div>
       </div>
     </div>
@@ -100,18 +175,18 @@
     </a>
   </div>
 </div>
-<div class="jumbotron my-4 px-2">
+<div class="container">
+<div class="jumbotron my-3">
   <div class="container">
-    <h1 class="display-3">Hello, world!</h1>
+    <h1 class="display-3">Welcome to Sceptique!</h1>
     <p>
-      This is a template for a simple marketing or informational website. It
-      includes a large callout called a jumbotron and three supporting pieces of
-      content. Use it as a starting point to create something more unique.
+      This websit is all you need for going through long scrappy Articles/Terms and conditions in just a matter of minutes , Find Authenticity of an article available online or find out about the public image of a brand or person in a given time period.
     </p>
     <p>
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a>
     </p>
   </div>
+</div>
 </div>
 
 <div class="container my-4">
@@ -120,22 +195,21 @@
       <div
         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
       >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Global Conferences</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
+        <div class="col p-3 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Fake-News</strong>
+          <h3 class="mb-0">Out Truth</h3>
+          <p></p>
           <p class="card-text mb-auto">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content.
+            Enter the URL and find the authenticity of any news article available on the internet.
           </p>
-          <a href="#" class="stretched-link">Continue reading</a>
+          <a href="/fakenews">Go to Page</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img
             class="bd-placeholder-img"
             width="200"
             height="250"
-            src="https://source.unsplash.com/1400x600/?code,news"
+            src="{{STATIC_URL}}/static/images/a.jpg"
           />
         </div>
       </div>
@@ -144,22 +218,21 @@
       <div
         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
       >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Learn Designing</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
+        <div class="col p-3 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Summary</strong>
+          <h3 class="mb-0">Summarizer</h3>
+          <p></p>
           <p class="mb-auto">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content.
+            Enter any lengthy article or any T&C document to save yourself from the torture of going through the whole text. 
           </p>
-          <a href="#" class="stretched-link">Continue reading</a>
+          <a href="/summary">Go to Page</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img
             class="bd-placeholder-img"
             width="200"
             height="250"
-            src="https://source.unsplash.com/1400x600/?code,macbook"
+            src="{{STATIC_URL}}/static/images/b.jpg"
           />
         </div>
       </div>
@@ -170,48 +243,23 @@
       <div
         class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
       >
-        <div class="col p-4 d-flex flex-column position-static">
+        <div class="col p-3 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary"
-            >Web Developement</strong
+            >Sentiment Analysis</strong
           >
-          <h3 class="mb-0">Bootstrap Template</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
+          <h3 class="mb-0">Press N Pulse</h3>
+          <p></p>
           <p class="card-text mb-auto">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content.
+            Search about the public image of a brand or a celebrity on internet by simply entring an article or a name
           </p>
-          <a href="#" class="stretched-link">Continue reading</a>
+          <a href="/pressnpulse" class="stretched-link">Go to Page</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img
             class="bd-placeholder-img"
             width="200"
             height="250"
-            src="https://source.unsplash.com/1400x600/?code,celebrity"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div
-        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-      >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Code</strong>
-          <h3 class="mb-0">Learn Python</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content.
-          </p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img
-            class="bd-placeholder-img"
-            width="200"
-            height="250"
-            src="https://source.unsplash.com/1400x600/?fake,news"
+            src="{{STATIC_URL}}/static/images/c.jpg"
           />
         </div>
       </div>
