@@ -129,11 +129,11 @@
       {% csrf_token %}
         <div class="form-group">
           <label for="url">Enter URL</label>
-          <input type="text" class="form-control" id="url" name="url" aria-describedby="url" placeholder="URL">
+          <input type="text" class="form-control" id="url" name="url" aria-describedby="url" placeholder="URL" value={{x}}>
         </div>
         <div class="form-group">
           <label for="Limit">Enter Word Limit</label>
-          <input type="Limit" class="form-control" id="limit" name="limit" placeholder="Enter Word Limit">
+          <input type="Limit" class="form-control" id="limit" name="limit" placeholder="Enter Word Limit" value={{y}}>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
