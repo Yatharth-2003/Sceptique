@@ -16,7 +16,7 @@ def summary(request):
         y = int(request.POST.get('limit'))
         article1 = url.getdata(x)
         text = url.summarizer(article1,y)
-        return render(request,"summarizer.html",{'text':text})
+        return render(request,"summarizer.html",{'text':text,'x': x , 'y': str(y)})
     else:
         return render(request,"summarizer.html")
     
