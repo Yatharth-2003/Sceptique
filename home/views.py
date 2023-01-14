@@ -9,3 +9,9 @@ def summary(request):
     return render(request,"summarizer.html")
 def pressnpulse(request):
     return render(request,"pressnpulse.html")
+def usingurl(request):
+    return render(request,"usingurl.html")
+def usingname(request):
+    return render(request,"usingname.html")
+def usingimage(request):
+    return render(request,"usingimage.html")

@@ -8,5 +8,8 @@ urlpatterns = [
     path('home',views.index,name="home"),
     path('fakenews', views.fakenews, name='fakenews'),
     path('summary', views.summary, name='summary'),
-    path('pressnpulse', views.pressnpulse, name='pressnpulse')
+    path('pressnpulse', views.pressnpulse, name='pressnpulse'),
+    path('usingname', views.usingname, name='usingname'),
+    path('usingurl', views.usingurl, name='usingurl'),
+    path('usingimage', views.usingimage, name='usingimage')
 ]

@@ -1,6 +1,6 @@
-{% extends 'base.html' %} 
-{% block title %}Press N Pulse{% endblock title %} 
-{%block body %}
+{% extends 'base.html' %}
+{% block title %}Press N Pulse{% endblock title %}
+{% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><strong>Sceptique</strong></a>
     <button
@@ -35,18 +35,19 @@
     </div>
   </nav>
 
-  <div class="position-relative overflow-hidden  m-2  text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto">
-      <h1 class="display-4 font-weight-normal">Press and Pulse</h1>
-      <p class="lead font-weight-normal">Search and find out about the public image of a brand or famous personality on the internet.</p>
-    </div>
-  </div>
-<div class="container my-4">
-    <a href="/usingname" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Search Using Name</a>
-    <a href="/usingurl" class="btn btn-info btn-lg active btn-block" role="button" aria-pressed="true">Search Using URL</a>
-    <a href="/usingimage" class="btn btn-secondary btn-lg active btn-block" role="button" aria-pressed="true">Search Using Text Image</a>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Sceptique</a></li>
+      <li class="breadcrumb-item"><a href="#">Press N Pulse</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Search using URL</li>
+    </ol>
+  </nav>
+
+  <div class="container my-4">
+    <label for="url">Enter URL</label>
+    <input type="text" class="form-control" id="url" placeholder="URL here">
+    <button type="submit" class="btn btn-primary my-4">Submit</button>
 </div>
+{% endblock body %}
 
-  {% endblock body %}   
-
-  {% block footerstyle %}style="position:absolute; bottom:0;"{% endblock footerstyle %} 
+{% block footerstyle %}style="position:absolute; bottom:0;"{% endblock footerstyle %} 
