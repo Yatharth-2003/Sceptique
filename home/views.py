@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from . import url
+
+# x = input()
+# y = int(input())
 
 # Create your views here.
 def index(request):
@@ -6,7 +11,15 @@ def index(request):
 def fakenews(request):
     return render(request,"fakenews.html")
 def summary(request):
-    return render(request,"summarizer.html")
+    if request.method == "POST":
+        x = request.POST.get('url')
+        y = int(request.POST.get('limit'))
+        article1 = url.getdata(x)
+        text = url.summarizer(article1,y)
+        return render(request,"summarizer.html",{'text':text})
+    else:
+        return render(request,"summarizer.html")
+    
 def pressnpulse(request):
     return render(request,"pressnpulse.html")
 def usingurl(request):
