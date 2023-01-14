@@ -52,6 +52,10 @@ To Summaraize a Long T&C article for you Enter the URL for the Doc and the Max w
   
  ### Future Scopes
  
+ * Add a user login system to recommend a personalised list of news articles.
+ * Add option to insert image of celebrity or brand for sentiment analysis.
+ * Improve the accuracy for the ML models used. 
+ 
  
  
  ### Contributors 
@@ -59,7 +63,7 @@ To Summaraize a Long T&C article for you Enter the URL for the Doc and the Max w
  * [Yogendra Pandey](https://github.com/McCartney2003) 
  * [Yash Tanwar](https://github.com/corrosivelogic)
  * [Yathartha Rana](https://github.com/YatharthaRana)
- * [Yatharth Mishra] ()
+ * [Yatharth Mishra](https://github.com/McCartney2003)
 
 
 
