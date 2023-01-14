@@ -11,5 +11,6 @@ urlpatterns = [
     path('pressnpulse', views.pressnpulse, name='pressnpulse'),
     path('usingname', views.usingname, name='usingname'),
     path('usingurl', views.usingurl, name='usingurl'),
-    path('usingimage', views.usingimage, name='usingimage')
+    path('usingimage', views.usingimage, name='usingimage'),
+    path('about', views.about, name='about')
 ]

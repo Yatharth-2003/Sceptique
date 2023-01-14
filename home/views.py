@@ -15,3 +15,5 @@ def usingname(request):
     return render(request,"usingname.html")
 def usingimage(request):
     return render(request,"usingimage.html")
+def about(request):
+    return render(request,"about.html")
