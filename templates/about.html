@@ -1,0 +1,208 @@
+{% extends 'base.html' %} {% block title %}About{% endblock title %} 
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/home"><strong>Sceptique |</strong></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/fakenews">Out-Truth</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/summary">Summarizer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pressnpulse">Press-N-Pulse </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-secondary mx-2"
+    data-toggle="modal"
+    data-target="#login"
+  >
+    Login
+  </button>
+
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-secondary"
+    data-toggle="modal"
+    data-target="#signup"
+  >
+    Sign Up
+  </button>
+</nav>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="login"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Login"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Login">Login</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Email">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Check1" />
+            <label class="form-check-label" for="Check1"
+              >Keep me logged in</label
+            >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="signup"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Sign Up"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Sign Up">Sign Up</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="Email">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="Password">Repeat Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              placeholder="Password"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+<div class="card mb-3">
+    <img src="{{STATIC_URL}}/static/images/team.png" height=400 class="card-img-top" alt="...">
+    <div class="card-body">
+      <h1 class="card-title">About</h1>
+      <p class="card-text">
+        We at Team Coding Braniacs have built this website with an aim to ease the process of detecting 
+        fake news, Summarize large documents and find out the online public image related to a brand or celebrity name.
+        <br>
+        <br>
+
+        ->With the Out-Truth feature we hope to weed out fake news on internet.<br>
+        ->Let people be able to read large T&C documents which many a time contain alot of questionable terms but people agree to them without reading just beacause of their humongus sizes.
+        <br>->In this Day and Age the online public image matters alot to company or proffesional , using Press-N-Pulse one can find out about it and that too in any specified time range. 
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock body %}
