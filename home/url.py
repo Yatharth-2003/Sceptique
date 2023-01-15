@@ -97,118 +97,124 @@ def summarizer(article, x):
     # Audio(sound_file, autoplay=True)
 
     """##Fake News """
-# def fake_news_detection(article):
-#     import re
-#     import nltk
-#     from nltk.corpus import stopwords
-#     from nltk import WordNetLemmatizer
-#     from nltk.tokenize import word_tokenize
+def fake_news_detection(article):
+    import re
+    import nltk
+    from nltk.corpus import stopwords
+    from nltk import WordNetLemmatizer
+    from nltk.tokenize import word_tokenize
 
-#     nltk.download('stopwords')
-#     nltk.download('wordnet')
-#     nltk.download('omw-1.4')
-#     nltk.download('punkt')
-#     nltk.download('averaged_perceptron_tagger')
+    nltk.download('stopwords')
+    nltk.download('wordnet')
+    nltk.download('omw-1.4')
+    nltk.download('punkt')
+    nltk.download('averaged_perceptron_tagger')
 
-#     lemmatizer = WordNetLemmatizer()
-#     from nltk.corpus import wordnet
-#     # Define function to lemmatize each word with its POS tag
+    print('hello')
+    lemmatizer = WordNetLemmatizer()
+    from nltk.corpus import wordnet
+    # Define function to lemmatize each word with its POS tag
+    print('hello1')
+    # POS_TAGGER_FUNCTION : TYPE 1
+    def pos_tagger(nltk_tag):
+        if nltk_tag.startswith('J'):
+            return wordnet.ADJ
+        elif nltk_tag.startswith('V'):
+            return wordnet.VERB
+        elif nltk_tag.startswith('N'):
+            return wordnet.NOUN
+        elif nltk_tag.startswith('R'):
+            return wordnet.ADV
+        else:         
+            return None
+
+    pos_tagged = nltk.pos_tag(nltk.word_tokenize(article)) 
+    print('hello2')
+    wordnet_tagged = list(map(lambda x: (x[0], pos_tagger(x[1])), pos_tagged))
+
+    lemmatized_sentence = []
+    for word, tag in wordnet_tagged:
+        if tag is None:
+            # if there is no available tag, append the token as is
+            lemmatized_sentence.append(word)
+        else:       
+            # else use the tag to lemmatize the token
+            lemmatized_sentence.append(lemmatizer.lemmatize(word, tag))
+    lemmatized_sentence = " ".join(lemmatized_sentence)
+
+    print(lemmatized_sentence)
+
+    import string
+    def review_cleaning(text):
+        '''Make text lowercase, remove text in square brackets,remove links,remove punctuation
+        and remove words containing numbers.'''
+        text = str(text).lower()
+        text = re.sub('\[.*?\]', '', text)
+        text = re.sub('https?://\S+|www\.\S+', '', text)
+        text = re.sub('<.*?>+', '', text)
+        text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+        text = re.sub('\n', '', text)
+        text = re.sub("'",'',text)
+        text = re.sub('\w*\d\w*', '', text)
+        return text
+
+    article=review_cleaning(lemmatized_sentence)
+    print(article)
+
+    import re
+    pattern = re.compile(r'\b(' + r'|'.join(stopwords.words('english')) + r')\b\s*')
+    text = pattern.sub('', lemmatized_sentence)
+
+    #Removing additional whitespaces 
+    article = re.sub('\s+', ' ', text)
+
+    print(article)
+    print("imp joblib")
+    import joblib
+
+    print("init vectorizer")
+
+    vectorizer = joblib.load('C:\\Users\\hp\\Documents\\Git\\SyntaxError2023\\Sceptique\\PythonNoteBooks\\Model\\Tfidf_vectorizer.sav')
+    print("lets vectorize")
+    X_test = vectorizer.transform([article])
+
+    print("get model")
+
+    model=joblib.load('C:\\Users\\hp\\Documents\\Git\\SyntaxError2023\\Sceptique\\PythonNoteBooks\\Model\\finalized_model.sav')
     
-#     # POS_TAGGER_FUNCTION : TYPE 1
-#     def pos_tagger(nltk_tag):
-#         if nltk_tag.startswith('J'):
-#             return wordnet.ADJ
-#         elif nltk_tag.startswith('V'):
-#             return wordnet.VERB
-#         elif nltk_tag.startswith('N'):
-#             return wordnet.NOUN
-#         elif nltk_tag.startswith('R'):
-#             return wordnet.ADV
-#         else:         
-#             return None
+    print("make predict")
 
-#     pos_tagged = nltk.pos_tag(nltk.word_tokenize(article)) 
-#     wordnet_tagged = list(map(lambda x: (x[0], pos_tagger(x[1])), pos_tagged))
+    prediction = model.predict(X_test)
+    print(prediction)
 
-#     lemmatized_sentence = []
-#     for word, tag in wordnet_tagged:
-#         if tag is None:
-#             # if there is no available tag, append the token as is
-#             lemmatized_sentence.append(word)
-#         else:       
-#             # else use the tag to lemmatize the token
-#             lemmatized_sentence.append(lemmatizer.lemmatize(word, tag))
-#     lemmatized_sentence = " ".join(lemmatized_sentence)
+    if (prediction[0]==0):
+      print('The news is Real')
+    else:
+      print('The news is Fake')
 
-#     lemmatized_sentence
+    """##Sentiment Analysis"""
 
-#     # import string
-#     # def review_cleaning(text):
-#     #     '''Make text lowercase, remove text in square brackets,remove links,remove punctuation
-#     #     and remove words containing numbers.'''
-#     #     text = str(text).lower()
-#     #     text = re.sub('\[.*?\]', '', text)
-#     #     text = re.sub('https?://\S+|www\.\S+', '', text)
-#     #     text = re.sub('<.*?>+', '', text)
-#     #     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
-#     #     text = re.sub('\n', '', text)
-#     #     text = re.sub("'",'',text)
-#     #     text = re.sub('\w*\d\w*', '', text)
-#     #     return text
 
-#     # article=review_cleaning(lemmatized_sentence)
-#     # article
-
-#     import re
-#     pattern = re.compile(r'\b(' + r'|'.join(stopwords.words('english')) + r')\b\s*')
-#     text = pattern.sub('', lemmatized_sentence)
-
-#     text
-
-#     #Removing additional whitespaces 
-#     article = re.sub('\s+', ' ', text)
-
-#     article
-
-#     from sklearn.feature_extraction.text import TfidfVectorizer
-#     import pickle
-
-#     vectorizer = pickle.load(open("C:\Users\hp\Documents\Git\SyntaxError2023\Sceptique\home\Model\Tfidf.pickle","rb"))
-#     X_test = vectorizer.transform([article])
-
-#     model=pickle.load(open("C:\Users\hp\Documents\Git\SyntaxError2023\Sceptique\home\Model\fake_news_fulltrained_logistic_2.pkl", "rb"))
-
-#     print("Hello")
     
-    
-#     prediction = model.predict(X_test)
-#     print(prediction)
+def score_flair(text1):
+    import nltk
+    nltk.download('punkt')
 
-#     if (prediction[0]==0):
-#       print('The news is Real')
-#     else:
-#       print('The news is Fake')
+    import torch
+    import flair
 
-#     """##Sentiment Analysis"""
-# def sentiment_analysis(text):
-#     import nltk
-#     nltk.download('punkt')
+    from flair.models import TextClassifier
+    from flair.data import Sentence
+    from segtok.segmenter import split_single
+    classifier = TextClassifier.load('en-sentiment')
 
-#     import torch
-#     import flair
+    str(text1)
+    sentence = Sentence(text1)
+    classifier = TextClassifier.load('en-sentiment')
+    classifier.predict(sentence)
+    score = sentence.labels[0].score
+    value = sentence.labels[0].value
+    return score, value
 
-#     from flair.models import TextClassifier
-#     from flair.data import Sentence
-#     from segtok.segmenter import split_single
-#     classifier = TextClassifier.load('en-sentiment')
-
-#     text1=text
-#     def score_flair(text1):
-#       str(text1)
-#       sentence = Sentence(text1)
-#       classifier.predict(sentence)
-#       score = sentence.labels[0].score
-#       value = sentence.labels[0].value
-#       return score, value
-
-#     print("Sentiment Analysis of the given article is ", score_flair(article)[1])
+def sentiment_analysis(text):
+    return ("Sentiment Analysis of the given article is "+score_flair(text)[1])

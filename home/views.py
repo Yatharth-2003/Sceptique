@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import url
 
-# x = input()
-# y = int(input())
 
-# Create your views here.
+
+
+
+
 def index(request):
     return render(request,"index.html")
 def fakenews(request):
@@ -23,7 +24,13 @@ def summary(request):
 def pressnpulse(request):
     return render(request,"pressnpulse.html")
 def usingurl(request):
-    return render(request,"usingurl.html")
+     if request.method == "POST":
+        x = request.POST.get('url')
+        article1 = url.getdata(x)
+        result = url.sentiment_analysis(article1)
+        return render(request,"usingurl.html",{'result':result,'x':x})
+     else:
+        return render(request,"usingurl.html")
 def usingname(request):
     return render(request,"usingname.html")
 def usingimage(request):
